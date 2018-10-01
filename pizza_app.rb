@@ -1,3 +1,4 @@
+puts "how many pizza do you want?"
 def size()
 	size = ["small=1","medium=2","large=3"]
 	size[0..2]
@@ -22,6 +23,7 @@ def cheese()
 	cheese = ["mozzerella","cheddar","pepper jack"]
 	cheese[0..2]
 end
+
 def pizza_maker(size,meats,crust,sauce,veggies,cheese)
 	puts "please make your selection correspondin number"
 	puts "please select size" ;print "#{size()}:" ;pizza_size = $stdin.gets.chomp
@@ -52,8 +54,8 @@ case pizza_sauce.to_f
 	when 3; pizza_sauce = sauce[2]; price += 1.75
 end
 case pizza_veggies.to_f
-	when 1; pizza_vegg = vegggies[0]; price += 1.00
-	when 2; pizza_vegg = veggies[1]; price += 1.50
+	when 1; pizza_vegg = veggies[0]; price += 1.00
+	when 2; pizza_vegg = veggies[1]; price += 1.00
 	when 3; pizza_vegg = veggies[2]; price += 1.00
 end
 	case pizza_cheese.to_f
@@ -63,5 +65,6 @@ end
 end
 total = price
 puts "okay,that will be a #{pizza_size} pizza, on #{pizza_crust} crust, with #{pizza_sauce} sauce, toppings include #{pizza_meats}, #{pizza_veggies}, and #{pizza_cheese} cheese."
+puts "okay, your total is #{total}"
 end
 pizza_maker(meats,cheese,size,crust,sauce,veggies)

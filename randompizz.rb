@@ -1,11 +1,17 @@
 puts "how many pizza do you want?"
 pizza = gets.chomp.to_i
 def extra()
-   if extra == "yes"
+   if extra == ["y"]
    toppings = ["extra cheese", "extra topping", "extra pizza"].sample
    else
-   puts "no"
+   puts ["n"]
    end
+end
+def time()
+	time = 0
+end
+def price()
+	price = 0
 end
 def size()
 	size = ["personal=1", "small=2", "medium=3", "large=4"].sample
@@ -20,7 +26,8 @@ def veggies()
 	veggies = ["bell pepper", "pineapple", "tommatos", "banna pepper"].sample
 end
 
-
 pizza.times do
+
+puts "#{price}, #{time} "
 puts "You pizz size is #{size}, your crust is #{crust}, #{meat}, veggies #{veggies}, and {extra}"
 end

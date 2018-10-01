@@ -1,6 +1,5 @@
-puts "how many pizza do you want?"
 def size()
-	size = ["small=1","medium=2","large=3"]
+	size = ["1=small", "2=medium", "3=large"]
 	size[0..2]
 end
 def meats()
@@ -11,7 +10,7 @@ def crust()
 	crust = ["thin","medium","stuff"]
 	crust[0..2]
 end
-def sauce ()
+def sauce()
 	sauce = ["regular", "alfrado", "ranch"]
 	sauce[0..2]
 end
@@ -32,39 +31,70 @@ def pizza_maker(size,meats,crust,sauce,veggies,cheese)
 	puts "sauce ?" ;print "#{sauce()}:" ;pizza_sauce = $stdin.gets.chomp
 	puts "veggies ?" ;print "#{veggies()}:" ;pizza_veggies = $stdin.gets.chomp
 	puts "cheese ?" ;print "#{cheese()}:" ;pizza_cheese = $stdin.gets.chomp
-price = 0
-case pizza_size.to_f
-	when 1; pizza_size = size[0]; price += 2.00
-	when 2; pizza_size = size[1]; price += 5.00
-	when 3; pizza_size = size[2]; price += 7.00
+time = 0 
+case pizza_size.to_f 
+	when 1; pizza_size = size[0]; time += 1 
+	when 2; pizza_size = size[1]; time += 1 
+	when 3; pizza_size = size[2]; time += 2 
 end
 case pizza_meats.to_f
-    when 1; pizza_meats = meats[0]; price += 1.75
-    when 2; pizza_meats = meats[1]; price += 2.00
-    when 3; pizza_meats = meats[2]; price += 2.50
+    when 1; pizza_meats = meats[0]; time += 1 
+    when 2; pizza_meats = meats[1]; time += 1 
+    when 3; pizza_meats = meats[2]; time += 2 
 end
 case pizza_crust.to_f
-	when 1; pizza_crust = crust[0]; price += 0.75
-	when 2; pizza_crust = crust[1]; price += 1.00
-	when 3; pizza_crust = crust[2]; price += 2.00
+	when 1; pizza_crust = crust[0]; time += 1
+	when 2; pizza_crust = crust[1]; time += 1 
+	when 3; pizza_crust = crust[2]; time += 2 
 end
 case pizza_sauce.to_f
-	when 1; pizza_sauce = sauce[0]; price += 1.00
-	when 2; pizza_sauce = sauce[1]; price += 1.50
-	when 3; pizza_sauce = sauce[2]; price += 1.75
+	when 1; pizza_sauce = sauce[0]; time += 1 
+	when 2; pizza_sauce = sauce[1]; time += 1
+	when 3; pizza_sauce = sauce[2]; time += 1
 end
 case pizza_veggies.to_f
-	when 1; pizza_vegg = veggies[0]; price += 1.00
-	when 2; pizza_vegg = veggies[1]; price += 1.00
-	when 3; pizza_vegg = veggies[2]; price += 1.00
+	when 1; pizza_vegg = veggies[0]; time += 1
+	when 2; pizza_vegg = veggies[1]; time += 1
+	when 3; pizza_vegg = veggies[2]; time += 1
 end
 	case pizza_cheese.to_f
-	when 1; pizza_cheese = cheese[0]; price += 1.50
-	when 2; pizza_cheese = cheese[1]; price += 2.00 
-	when 3; pizza_cheese = cheese[2]; price += 2.00
+	when 1; pizza_cheese = cheese[0]; time += 1
+	when 2; pizza_cheese = cheese[1]; time += 2
+	when 3; pizza_cheese = cheese[2]; time += 2
 end
-total = price
+price = 0
+case pizza_size.to_f
+	when 1; pizza_size = size[0]; price += 1
+	when 2; pizza_size = size[1]; price += 2
+	when 3; pizza_size = size[2]; price += 5
+end
+case pizza_meats.to_f
+    when 1; pizza_meats = meats[0]; price += 1
+    when 2; pizza_meats = meats[1]; price += 2
+    when 3; pizza_meats = meats[2]; price += 2
+end
+case pizza_crust.to_f
+	when 1; pizza_crust = crust[0]; price += 1
+	when 2; pizza_crust = crust[1]; price += 1
+	when 3; pizza_crust = crust[2]; price += 2
+end
+case pizza_sauce.to_f
+	when 1; pizza_sauce = sauce[0]; price += 1
+	when 2; pizza_sauce = sauce[1]; price += 1
+	when 3; pizza_sauce = sauce[2]; price += 1
+end
+case pizza_veggies.to_f
+	when 1; pizza_vegg = veggies[0]; price += 1
+	when 2; pizza_vegg = veggies[1]; price += 2
+	when 3; pizza_vegg = veggies[2]; price += 9
+end
+	case pizza_cheese.to_f
+	when 1; pizza_cheese = cheese[0]; price += 1
+	when 2; pizza_cheese = cheese[1]; price += 2 
+	when 3; pizza_cheese = cheese[2]; price += 2
+end
 puts "okay,that will be a #{pizza_size} pizza, on #{pizza_crust} crust, with #{pizza_sauce} sauce, toppings include #{pizza_meats}, #{pizza_veggies}, and #{pizza_cheese} cheese."
-puts "okay, your total is #{total}"
+puts "okay, your total is #{price} dollars"
+puts "your waiting time is #{time} mins"
 end
 pizza_maker(meats,cheese,size,crust,sauce,veggies)

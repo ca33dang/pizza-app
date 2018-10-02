@@ -1,14 +1,14 @@
 def size()
-	size = ["1=small", "2=medium", "3=large"]
-	size[0..2]
+	size = ["small", "medium", "large", "junbo"]
+	size[0..3]
 end
 def meats()
-	meats = ["pepperoni","sausage","ham"]
-	meats[0..2]
+	meats = ["pepperoni","sausage","ham", "bacon"]
+	meats[0..3]
 end
 def crust()
-	crust = ["thin","medium","stuff"]
-	crust[0..2]
+	crust = ["thin","medium", "thick", "stuff"]
+	crust[0..3]
 end
 def sauce()
 	sauce = ["regular", "alfrado", "ranch"]
@@ -36,16 +36,19 @@ case pizza_size.to_f
 	when 1; pizza_size = size[0]; time += 1 
 	when 2; pizza_size = size[1]; time += 1 
 	when 3; pizza_size = size[2]; time += 2 
+	when 4; pizza_size = size[3]; time += 2
 end
 case pizza_meats.to_f
     when 1; pizza_meats = meats[0]; time += 1 
     when 2; pizza_meats = meats[1]; time += 1 
     when 3; pizza_meats = meats[2]; time += 2 
+    when 4; pizza_meats = meats[3]; time += 2
 end
 case pizza_crust.to_f
 	when 1; pizza_crust = crust[0]; time += 1
 	when 2; pizza_crust = crust[1]; time += 1 
 	when 3; pizza_crust = crust[2]; time += 2 
+	when 4; pizza_crust = crust[3]; time += 2
 end
 case pizza_sauce.to_f
 	when 1; pizza_sauce = sauce[0]; time += 1 
@@ -67,16 +70,19 @@ case pizza_size.to_f
 	when 1; pizza_size = size[0]; price += 1
 	when 2; pizza_size = size[1]; price += 2
 	when 3; pizza_size = size[2]; price += 5
+	when 4; pizza_size = size[3]; price += 5
 end
 case pizza_meats.to_f
     when 1; pizza_meats = meats[0]; price += 1
     when 2; pizza_meats = meats[1]; price += 2
     when 3; pizza_meats = meats[2]; price += 2
+    when 4; pizza_meats = meats[3]; price += 3
 end
 case pizza_crust.to_f
 	when 1; pizza_crust = crust[0]; price += 1
 	when 2; pizza_crust = crust[1]; price += 1
 	when 3; pizza_crust = crust[2]; price += 2
+	when 4; pizza_crust = crust[3]; price += 3
 end
 case pizza_sauce.to_f
 	when 1; pizza_sauce = sauce[0]; price += 1
@@ -93,8 +99,9 @@ end
 	when 2; pizza_cheese = cheese[1]; price += 2 
 	when 3; pizza_cheese = cheese[2]; price += 2
 end
+total = price
 puts "okay,that will be a #{pizza_size} pizza, on #{pizza_crust} crust, with #{pizza_sauce} sauce, toppings include #{pizza_meats}, #{pizza_veggies}, and #{pizza_cheese} cheese."
-puts "okay, your total is #{price} dollars"
-puts "your waiting time is #{time} mins"
+puts "okay, your total is #{total}, dollars"
+puts "your waiting time is #{time}, mins"
 end
 pizza_maker(meats,cheese,size,crust,sauce,veggies)

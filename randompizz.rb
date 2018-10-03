@@ -13,14 +13,17 @@ end
 def veggies()
 	veggies = ["bell pepper", "pineapple", "tommatos", "banna pepper"].sample
 end
-def special()
-   if special == ["y"]
-   special = ["five meats", "Hawain pizza", "chicken bacon ranch"].sample
-   else
-   puts ["n"]
+
+def special(extra)
+
+puts "#{extra}extra here"
+puts extra.class
+   if extra == "y"
+   extra = ["and five meats", "and Hawain pizza", "and chicken bacon ranch"].sample
+   
    end
 end
-def price(size, special)
+def price(size, rb)
 	price = 0
 	if size == "personal pan"
 		price = 5
@@ -31,15 +34,23 @@ def price(size, special)
 	elsif size == "large"
 		price = 9
 	end
-	if special == "five meats"
+	if rb == "and five meats"
 		price += 5
-	elsif special == "Hawain pizza"
+	elsif rb == "and Hawain pizza"
 		price += 7
-	elsif special == "chicken bacon ranch"
+	elsif rb == "and chicken bacon ranch"
 		price += 4
+
 	end
 	return price
+	# def delivery (price)
+	# if delivery == "y"
+	# 	puts ["y"]
+	# elsif delivery == "n"
+	# 	puts ["n"]
+	
 end
+
 
 def time()
 	time = 15
@@ -47,10 +58,11 @@ end
 puts "how many pizza do you want?"
 pizza = gets.chomp.to_i
 puts "do you want our specialty pizza? y or n"
-special = gets.chomp.to_i
+sp_9 = gets.chomp
+rb = special(sp_9)
 pizza.times do
 
 
-puts "Your pizza size is #{size}, your crust is #{crust}, #{meat}, veggies #{veggies}, and #{special}"
-puts "Your total is #{price(size, special)} dollars, and your wait time is #{time} mins. "
+puts "Your pizza size is #{size}, your crust is #{crust}, #{meat}, veggies #{veggies}, #{rb}"
+puts "Your total is #{price(size, rb)} dollars, and your wait time is #{time} mins. "
 end
